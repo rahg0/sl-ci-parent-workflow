@@ -30,6 +30,6 @@ jobs:
       - name: Run Orca Container Image Scan
         uses: orcasecurity/shiftleft-container-image-action@v1
         with:
-          api_token: ${{ inputs.api_token }}
+          api_token: ${{ secrets.ORCA_SECURITY_API_TOKEN }}
           project_key: ${{ inputs.project_key }}
           image: ${{ inputs.image_name }}:${{ inputs.image_tag }}
