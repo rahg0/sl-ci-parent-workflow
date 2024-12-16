@@ -6,9 +6,9 @@ name: CI
 on:
   workflow_call:
     inputs:
-      api_token:
-        required: true
-        type: string
+      #api_token:
+      #  required: true
+      #  type: string
       project_key:
         required: true
         type: string
