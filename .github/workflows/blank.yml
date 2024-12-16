@@ -6,6 +6,9 @@ name: CI
 on:
   workflow_call:
     inputs:
+      api_token:
+        required: true
+        type: string
       project_key:
         required: true
         type: string
@@ -27,6 +30,6 @@ jobs:
       - name: Run Orca Container Image Scan
         uses: orcasecurity/shiftleft-container-image-action@v1
         with:
-          api_token: ${{ secrets.ORCA_SECURITY_API_TOKEN }}
+          api_token: ${{ inputs.api_token }}
           project_key: ${{ inputs.project_key }}
           image: ${{ inputs.image_name }}:${{ inputs.image_tag }}
