@@ -44,6 +44,13 @@ jobs:
           push: true
           tags: ${{ inputs.image_name }}:${{ inputs.image_tag }}
 
+      - name: manual login to Dhub
+        run: |
+          docker image ls
+          ls -lah
+          docker login -u ${{ vars.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_PASS }}
+
+
       - name: Run Orca Container Image Scan
         uses: orcasecurity/shiftleft-container-image-action@v1
         with:
