@@ -49,6 +49,8 @@ jobs:
           docker image ls
           ls -lah
           docker login -u ${{ vars.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_PASS }}
+          docker pull ${{ inputs.image_name }}:${{ inputs.image_tag }}
+          docker image ls
 
 
       - name: Run Orca Container Image Scan
